@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/paladin-privacy/auth.git"
+    "url": "git+ssh://git@github.com/portable-profiles/auth.git"
   },
   "author": "",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/paladin-privacy/auth/issues"
+    "url": "https://github.com/portable-profiles/auth/issues"
   },
-  "homepage": "https://github.com/paladin-privacy/auth#readme",
+  "homepage": "https://github.com/portable-profiles/auth#readme",
   "dependencies": {
     "@portable-profiles/profiles": "0.0.11",
     "moment": "^2.24.0",
