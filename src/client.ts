@@ -1,5 +1,5 @@
 import { IChallenge, IChallengeResponse } from './models';
-import { Profile } from '@paladin-privacy/profiles';
+import { Profile } from '@portable-profiles/profiles';
 
 export class PaladinAuthenticationClient {
   public static signChallenge(

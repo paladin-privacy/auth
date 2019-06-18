@@ -1,7 +1,7 @@
 {
-  "name": "@paladin-privacy/auth",
+  "name": "@portable-profiles/auth",
   "version": "0.0.1",
-  "description": "Authentication library that creates sessions for users with Paladin profiles",
+  "description": "Authentication library that creates sessions for users with portable profiles",
   "main": "dist/index.js",
   "scripts": {
     "format": "prettier --write \"./src/**/*.{js,jsx,json,ts,tsx}\"",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/paladin-privacy/auth#readme",
   "dependencies": {
-    "@paladin-privacy/profiles": "0.0.10",
+    "@portable-profiles/profiles": "0.0.11",
     "moment": "^2.24.0",
     "jest": "^24.8.0",
     "lodash": "^4.17.11",

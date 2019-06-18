@@ -1,9 +1,9 @@
 import {
-  PaladinKeychain,
+  Keychain,
   Profile,
   Fields,
   Visibility,
-} from '@paladin-privacy/profiles';
+} from '@portable-profiles/profiles';
 import { PaladinAuthenticationServer } from '../server';
 import { PaladinAuthenticationClient } from '../client';
 
@@ -15,7 +15,7 @@ alice.sign();
 
 test('verify successful authentication', () => {
   // Initialize the mock server keychain
-  const server = PaladinKeychain.create();
+  const server = Keychain.create();
 
   // Execute auth flow
   const challenge = PaladinAuthenticationServer.challenge(server, alice);
@@ -37,7 +37,7 @@ test('verify successful authentication', () => {
 
 test('attempt to forge the challenge in a response', () => {
   // Initialize the mock server keychain
-  const server = PaladinKeychain.create();
+  const server = Keychain.create();
 
   // Execute auth flow
   const challenge = PaladinAuthenticationServer.challenge(server, alice);
@@ -53,7 +53,7 @@ test('attempt to forge the challenge in a response', () => {
 
 test('attempt to forge the signature in a response', () => {
   // Initialize the mock server keychain
-  const server = PaladinKeychain.create();
+  const server = Keychain.create();
 
   // Execute auth flow
   const challenge = PaladinAuthenticationServer.challenge(server, alice);
@@ -69,7 +69,7 @@ test('attempt to forge the signature in a response', () => {
 
 test('attempt to forge a session', () => {
   // Initialize the mock server keychain
-  const server = PaladinKeychain.create();
+  const server = Keychain.create();
 
   // Execute auth flow
   expect(() => {

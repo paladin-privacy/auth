@@ -1,11 +1,11 @@
-import { PaladinKeychain, Profile } from '@paladin-privacy/profiles';
+import { Keychain, Profile } from '@portable-profiles/profiles';
 const crypto = require('crypto');
 import * as moment from 'moment';
 import { ISession, IChallenge, IChallengeResponse } from './models';
 
 export class PaladinAuthenticationServer {
   public static challenge(
-    serverKeychain: PaladinKeychain,
+    serverKeychain: Keychain,
     userProfile: Profile
   ): IChallenge {
     const token = crypto.randomBytes(48).toString('base64');
@@ -18,7 +18,7 @@ export class PaladinAuthenticationServer {
   }
 
   public static authenticate(
-    serverKeychain: PaladinKeychain,
+    serverKeychain: Keychain,
     userProfile: Profile,
     response: IChallengeResponse
   ): ISession {
@@ -50,7 +50,7 @@ export class PaladinAuthenticationServer {
   }
 
   public static createSession(
-    serverKeychain: PaladinKeychain,
+    serverKeychain: Keychain,
     userProfile: Profile
   ): ISession {
     const id = userProfile.getId();
@@ -62,7 +62,7 @@ export class PaladinAuthenticationServer {
 
   public static verifySession(
     session: ISession,
-    serverKeychain: PaladinKeychain
+    serverKeychain: Keychain
   ): string {
     if (
       !serverKeychain.verify(JSON.stringify(session.body), {
