@@ -1,0 +1,37 @@
+{
+  "name": "@paladin-privacy/auth",
+  "version": "0.0.1",
+  "description": "Authentication library that creates sessions for users with Paladin profiles",
+  "main": "dist/index.js",
+  "scripts": {
+    "format": "prettier --write \"./src/**/*.{js,jsx,json,ts,tsx}\"",
+    "format:check": "prettier --check \"./src/**/*.{js,jsx,json,ts,tsx}\"",
+    "lint": "tslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "lint:check": "tslint src/**/*.{js,jsx,ts,tsx}",
+    "test": "jest --coverage",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/paladin-privacy/auth.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/paladin-privacy/auth/issues"
+  },
+  "homepage": "https://github.com/paladin-privacy/auth#readme",
+  "dependencies": {
+    "@paladin-privacy/profiles": "0.0.10",
+    "moment": "^2.24.0",
+    "jest": "^24.8.0",
+    "lodash": "^4.17.11",
+    "typescript": "^3.5.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.17.0"
+  }
+}
