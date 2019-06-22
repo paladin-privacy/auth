@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/portable-profiles/auth#readme",
   "dependencies": {
-    "@portable-profiles/profiles": "0.0.11",
+    "@portable-profiles/profiles": "0.0.13",
     "moment": "^2.24.0",
     "jest": "^24.8.0",
     "lodash": "^4.17.11",
