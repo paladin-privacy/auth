@@ -1,6 +1,6 @@
 {
   "name": "@portable-profiles/auth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Authentication library that creates sessions for users with portable profiles",
   "main": "dist/index.js",
   "scripts": {

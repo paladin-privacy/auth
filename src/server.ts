@@ -3,7 +3,7 @@ const crypto = require('crypto');
 import * as moment from 'moment';
 import { ISession, IChallenge, IChallengeResponse } from './models';
 
-export class PaladinAuthenticationServer {
+export class AuthenticationServer {
   public static challenge(
     serverKeychain: Keychain,
     userProfile: Profile
@@ -43,10 +43,7 @@ export class PaladinAuthenticationServer {
       throw new Error('The challenge is not properly signed by the user');
     }
 
-    return PaladinAuthenticationServer.createSession(
-      serverKeychain,
-      userProfile
-    );
+    return AuthenticationServer.createSession(serverKeychain, userProfile);
   }
 
   public static createSession(

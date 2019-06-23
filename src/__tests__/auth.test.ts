@@ -4,7 +4,7 @@ import {
   Fields,
   Visibility,
 } from '@portable-profiles/profiles';
-import { PaladinAuthenticationServer } from '../server';
+import { AuthenticationServer } from '../server';
 import { PaladinAuthenticationClient } from '../client';
 
 // Initialize a profile
@@ -18,19 +18,19 @@ test('verify successful authentication', () => {
   const server = Keychain.create();
 
   // Execute auth flow
-  const challenge = PaladinAuthenticationServer.challenge(server, alice);
+  const challenge = AuthenticationServer.challenge(server, alice);
   const challengeResponse = PaladinAuthenticationClient.signChallenge(
     alice,
     challenge
   );
-  const session = PaladinAuthenticationServer.authenticate(
+  const session = AuthenticationServer.authenticate(
     server,
     alice,
     challengeResponse
   );
 
   // Verify the session
-  expect(PaladinAuthenticationServer.verifySession(session, server)).toEqual(
+  expect(AuthenticationServer.verifySession(session, server)).toEqual(
     alice.getId()
   );
 });
@@ -40,14 +40,14 @@ test('attempt to forge the challenge in a response', () => {
   const server = Keychain.create();
 
   // Execute auth flow
-  const challenge = PaladinAuthenticationServer.challenge(server, alice);
+  const challenge = AuthenticationServer.challenge(server, alice);
   expect(() => {
     const challengeResponse = PaladinAuthenticationClient.signChallenge(
       alice,
       challenge
     );
     challengeResponse.challenge.body.id = 'test';
-    PaladinAuthenticationServer.authenticate(server, alice, challengeResponse);
+    AuthenticationServer.authenticate(server, alice, challengeResponse);
   }).toThrow();
 });
 
@@ -56,14 +56,14 @@ test('attempt to forge the signature in a response', () => {
   const server = Keychain.create();
 
   // Execute auth flow
-  const challenge = PaladinAuthenticationServer.challenge(server, alice);
+  const challenge = AuthenticationServer.challenge(server, alice);
   expect(() => {
     const challengeResponse = PaladinAuthenticationClient.signChallenge(
       alice,
       challenge
     );
     challengeResponse.signature = 'test';
-    PaladinAuthenticationServer.authenticate(server, alice, challengeResponse);
+    AuthenticationServer.authenticate(server, alice, challengeResponse);
   }).toThrow();
 });
 
@@ -74,7 +74,7 @@ test('attempt to forge a session', () => {
   // Execute auth flow
   expect(() => {
     expect(
-      PaladinAuthenticationServer.verifySession(
+      AuthenticationServer.verifySession(
         {
           body: {
             id: 'test',
