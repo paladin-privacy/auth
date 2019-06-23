@@ -5,7 +5,7 @@ import {
   Visibility,
 } from '@portable-profiles/profiles';
 import { AuthenticationServer } from '../server';
-import { PaladinAuthenticationClient } from '../client';
+import { AuthenticationClient } from '../client';
 
 // Initialize a profile
 const alice = new Profile();
@@ -19,7 +19,7 @@ test('verify successful authentication', () => {
 
   // Execute auth flow
   const challenge = AuthenticationServer.challenge(server, alice);
-  const challengeResponse = PaladinAuthenticationClient.signChallenge(
+  const challengeResponse = AuthenticationClient.signChallenge(
     alice,
     challenge
   );
@@ -42,7 +42,7 @@ test('attempt to forge the challenge in a response', () => {
   // Execute auth flow
   const challenge = AuthenticationServer.challenge(server, alice);
   expect(() => {
-    const challengeResponse = PaladinAuthenticationClient.signChallenge(
+    const challengeResponse = AuthenticationClient.signChallenge(
       alice,
       challenge
     );
@@ -58,7 +58,7 @@ test('attempt to forge the signature in a response', () => {
   // Execute auth flow
   const challenge = AuthenticationServer.challenge(server, alice);
   expect(() => {
-    const challengeResponse = PaladinAuthenticationClient.signChallenge(
+    const challengeResponse = AuthenticationClient.signChallenge(
       alice,
       challenge
     );

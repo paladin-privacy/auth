@@ -1,7 +1,7 @@
 import { IChallenge, IChallengeResponse } from './models';
 import { Profile } from '@portable-profiles/profiles';
 
-export class PaladinAuthenticationClient {
+export class AuthenticationClient {
   public static signChallenge(
     user: Profile,
     challenge: IChallenge
